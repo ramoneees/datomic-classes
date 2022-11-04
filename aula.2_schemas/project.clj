@@ -6,6 +6,6 @@
   :dependencies [[org.clojure/clojure "1.10.1"]
                  [com.datomic/dev-local "1.0.243"]]
   :repositories [["cognitect-dev-tools" {:url      "https://dev-tools.cognitect.com/maven/releases/"
-                                         :username "ramonp.rios@gmail.com"
-                                         :password "5D2A78EAEF55B18129E64F3C2086B620F92B53D6"}]]
+                                         :username :env
+                                         :password :env}]]
   :repl-options {:init-ns aula.2-schemas})
