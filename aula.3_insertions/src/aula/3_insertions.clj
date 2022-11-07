@@ -50,11 +50,10 @@
   (d/delete-database client {:db-name "brecho"})
 
   (def conn (d/connect client {:db-name "brecho"}))
-  (def db (d/db conn)))
-
-(d/q
- '[:find ?id ?quantidade
-   :where
-   [?roupa :roupa/id ?id]
-   [?roupa :roupa/quantidade ?quantidade]]
- db)
+  (def db (d/db conn))
+  (d/q
+   '[:find ?id ?quantidade
+     :where
+     [?roupa :roupa/id ?id]
+     [?roupa :roupa/quantidade ?quantidade]]
+   db))
