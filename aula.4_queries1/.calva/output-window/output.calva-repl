@@ -1,0 +1,478 @@
+; Jacking in...
+; Starting Jack-in Terminal: lein update-in :dependencies conj '[nrepl,"1.0.0"]' -- update-in :plugins conj '[cider/cider-nrepl,"0.28.5"]' -- update-in '[:repl-options,:nrepl-middleware]' conj '["cider.nrepl/cider-middleware"]' -- repl :headless
+; Hooking up nREPL sessions...
+; Connected session: clj
+; TIPS:
+;   - You can edit the contents here. Use it as a REPL if you like.
+;   - `alt+enter` evaluates the current top level form.
+;   - `ctrl+enter` evaluates the current form.
+;   - `alt+up` and `alt+down` traverse up and down the REPL command history
+;      when the cursor is after the last contents at the prompt
+;   - Clojure lines in stack traces are peekable and clickable.
+clj꞉aula.4-queries1꞉> 
+; Jack-in done.
+clj꞉aula.4-queries1꞉> 
+#'aula.4-queries1/client
+clj꞉aula.4-queries1꞉> 
+true
+clj꞉aula.4-queries1꞉> 
+#'aula.4-queries1/conn
+clj꞉aula.4-queries1꞉> 
+(d/transact conn {:tx-data recipes-schema})
+{:db-before
+ #datomic.core.db.Db{:id "recipes", :basisT 5, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
+ :db-after
+ #datomic.core.db.Db{:id "recipes", :basisT 6, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
+ :tx-data
+ [#datom[13194139533318 50 #inst "2022-11-09T18:17:38.051-00:00" 13194139533318 true] #datom[73 10 :ingredient/id 13194139533318 true] #datom[73 40 22 13194139533318 true] #datom[73 42 38 13194139533318 true] #datom[73 41 35 13194139533318 true] #datom[74 10 :ingredient/name 13194139533318 true] #datom[74 40 23 13194139533318 true] #datom[74 41 35 13194139533318 true] #datom[75 10 :owner/id 13194139533318 true] #datom[75 40 22 13194139533318 true] #datom[75 42 38 13194139533318 true] #datom[75 41 35 13194139533318 true] #datom[76 10 :onwer/name 13194139533318 true] #datom[76 40 23 13194139533318 true] #datom[76 41 35 13194139533318 true] #datom[77 10 :recipe/id 13194139533318 true] #datom[77 40 22 13194139533318 true] #datom[77 42 38 13194139533318 true] #datom[77 41 35 13194139533318 true] #datom[78 10 :recipe/name 13194139533318 true] #datom[78 40 23 13194139533318 true] #datom[78 41 35 13194139533318 true] #datom[79 10 :recipe/ingredients 13194139533318 true] #datom[79 40 20 13194139533318 true] #datom[79 41 36 13194139533318 true] #datom[80 10 :recipe/price 13194139533318 true] #datom[80 40 22 13194139533318 true] #datom[80 41 35 13194139533318 true] #datom[81 10 :recipe/owner 13194139533318 true] #datom[81 40 20 13194139533318 true] #datom[81 41 35 13194139533318 true] #datom[0 13 73 13194139533318 true] #datom[0 13 74 13194139533318 true] #datom[0 13 75 13194139533318 true] #datom[0 13 76 13194139533318 true] #datom[0 13 77 13194139533318 true] #datom[0 13 78 13194139533318 true] #datom[0 13 79 13194139533318 true] #datom[0 13 80 13194139533318 true] #datom[0 13 81 13194139533318 true]],
+ :tempids {}}
+clj꞉aula.4-queries1꞉> 
+(d/transact conn {:tx-data ingredient-samples})
+{:db-before
+ #datomic.core.db.Db{:id "recipes", :basisT 6, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
+ :db-after
+ #datomic.core.db.Db{:id "recipes", :basisT 7, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
+ :tx-data
+ [#datom[13194139533319 50 #inst "2022-11-09T18:20:40.796-00:00" 13194139533319 true] #datom[87960930222162 73 1 13194139533319 true] #datom[87960930222162 74 "ingredient 1" 13194139533319 true] #datom[87960930222163 73 2 13194139533319 true] #datom[87960930222163 74 "ingredient 2" 13194139533319 true] #datom[87960930222164 73 3 13194139533319 true] #datom[87960930222164 74 "ingredient 3" 13194139533319 true] #datom[87960930222165 73 4 13194139533319 true] #datom[87960930222165 74 "ingredient 4" 13194139533319 true] #datom[87960930222166 73 5 13194139533319 true] #datom[87960930222166 74 "ingredient 5" 13194139533319 true] #datom[87960930222167 73 6 13194139533319 true] #datom[87960930222167 74 "ingredient 6" 13194139533319 true] #datom[87960930222168 73 7 13194139533319 true] #datom[87960930222168 74 "ingredient 7" 13194139533319 true] #datom[87960930222169 73 8 13194139533319 true] #datom[87960930222169 74 "ingredient 8" 13194139533319 true] #datom[87960930222170 73 9 13194139533319 true] #datom[87960930222170 74 "ingredient 9" 13194139533319 true] #datom[87960930222171 73 10 13194139533319 true] #datom[87960930222171 74 "ingredient 10" 13194139533319 true] #datom[87960930222172 73 11 13194139533319 true] #datom[87960930222172 74 "ingredient 11" 13194139533319 true] #datom[87960930222173 73 12 13194139533319 true] #datom[87960930222173 74 "ingredient 12" 13194139533319 true] #datom[87960930222174 73 13 13194139533319 true] #datom[87960930222174 74 "ingredient 13" 13194139533319 true] #datom[87960930222175 73 14 13194139533319 true] #datom[87960930222175 74 "ingredient 14" 13194139533319 true] #datom[87960930222176 73 15 13194139533319 true] #datom[87960930222176 74 "ingredient 15" 13194139533319 true] #datom[87960930222177 73 16 13194139533319 true] #datom[87960930222177 74 "ingredient 16" 13194139533319 true] #datom[87960930222178 73 17 13194139533319 true] #datom[87960930222178 74 "ingredient 17" 13194139533319 true] #datom[87960930222179 73 18 13194139533319 true] #datom[87960930222179 74 "ingredient 18" 13194139533319 true] #datom[87960930222180 73 19 13194139533319 true] #datom[87960930222180 74 "ingredient 19" 13194139533319 true] #datom[87960930222181 73 20 13194139533319 true] #datom[87960930222181 74 "ingredient 20" 13194139533319 true] #datom[87960930222182 73 21 13194139533319 true] #datom[87960930222182 74 "ingredient 21" 13194139533319 true] #datom[87960930222183 73 22 13194139533319 true] #datom[87960930222183 74 "ingredient 22" 13194139533319 true] #datom[87960930222184 73 23 13194139533319 true] #datom[87960930222184 74 "ingredient 23" 13194139533319 true] #datom[87960930222185 73 24 13194139533319 true] #datom[87960930222185 74 "ingredient 24" 13194139533319 true] #datom[87960930222186 73 25 13194139533319 true] ...],
+ :tempids {}}
+clj꞉aula.4-queries1꞉> 
+(d/transact conn {:tx-data [{:owner/id 1
+                             :owner/name "Ramon Rios"}
+                            {:owner/id 2
+                             :owner/name "Erick Jacquin"}
+                            {:owner/id 3
+                             :owner/name "Ratatouille"}]})
+; Execution error (ExceptionInfo) at datomic.core.error/raise (error.clj:55).
+; :db.error/not-an-entity Unable to resolve entity: :owner/name
+clj꞉aula.4-queries1꞉> 
+#'aula.4-queries1/recipes-schema
+clj꞉aula.4-queries1꞉> 
+(d/transact conn {:tx-data recipes-schema})
+{:db-before
+ #datomic.core.db.Db{:id "recipes", :basisT 7, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
+ :db-after
+ #datomic.core.db.Db{:id "recipes", :basisT 8, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
+ :tx-data
+ [#datom[13194139533320 50 #inst "2022-11-09T18:23:53.734-00:00" 13194139533320 true] #datom[82 10 :owner/name 13194139533320 true] #datom[82 40 23 13194139533320 true] #datom[82 41 35 13194139533320 true] #datom[0 13 82 13194139533320 true]],
+ :tempids {}}
+clj꞉aula.4-queries1꞉> 
+(d/transact conn {:tx-data [{:owner/id 1
+                             :owner/name "Ramon Rios"}
+                            {:owner/id 2
+                             :owner/name "Erick Jacquin"}
+                            {:owner/id 3
+                             :owner/name "Ratatouille"}]})
+{:db-before
+ #datomic.core.db.Db{:id "recipes", :basisT 8, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
+ :db-after
+ #datomic.core.db.Db{:id "recipes", :basisT 9, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
+ :tx-data
+ [#datom[13194139533321 50 #inst "2022-11-09T18:24:01.546-00:00" 13194139533321 true] #datom[74766790688880 75 1 13194139533321 true] #datom[74766790688880 82 "Ramon Rios" 13194139533321 true] #datom[74766790688881 75 2 13194139533321 true] #datom[74766790688881 82 "Erick Jacquin" 13194139533321 true] #datom[74766790688882 75 3 13194139533321 true] #datom[74766790688882 82 "Ratatouille" 13194139533321 true]],
+ :tempids {}}
+clj꞉aula.4-queries1꞉> 
+(d/transact conn {:tx-data [{:recipe/id 1
+                             :recipe/name "Cuscuz com queijo"
+                             :recipe/owner 1
+                             :recipe/ingredients [1 2]}]})
+{:db-before
+ #datomic.core.db.Db{:id "recipes", :basisT 9, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
+ :db-after
+ #datomic.core.db.Db{:id "recipes", :basisT 10, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
+ :tx-data
+ [#datom[13194139533322 50 #inst "2022-11-09T18:26:04.850-00:00" 13194139533322 true] #datom[83562883711091 77 1 13194139533322 true] #datom[83562883711091 78 "Cuscuz com queijo" 13194139533322 true] #datom[83562883711091 81 1 13194139533322 true] #datom[83562883711091 79 1 13194139533322 true] #datom[83562883711091 79 2 13194139533322 true]],
+ :tempids {}}
+clj꞉aula.4-queries1꞉> 
+(d/pull (d/db conn) [:ingredient/name] [:ingredient/id 10])
+#:ingredient{:name "ingredient 10"}
+clj꞉aula.4-queries1꞉> 
+(d/pull (d/db conn) [:ingredient/name :ingredient/id] [:ingredient/id 10])
+#:ingredient{:name "ingredient 10", :id 10}
+clj꞉aula.4-queries1꞉> 
+(d/pull (d/db conn) '[*] [:ingredient/id 10])
+{:db/id 87960930222171, :ingredient/id 10, :ingredient/name "ingredient 10"}
+clj꞉aula.4-queries1꞉> 
+(d/pull (d/db conn) '[*] [:recipe/id 1])
+{:db/id 83562883711091,
+ :recipe/id 1,
+ :recipe/name "Cuscuz com queijo",
+ :recipe/ingredients [#:db{:id 1, :ident :db/add} #:db{:id 2, :ident :db/retract}],
+ :recipe/owner #:db{:id 1, :ident :db/add}}
+clj꞉aula.4-queries1꞉> 
+(d/transact conn {:tx-data [{:owner/id 1
+                             :owner/name "Ramon Rios"}
+                            {:owner/id 2
+                             :owner/name "Erick Jacquin"}
+                            {:owner/id 3
+                             :owner/name "Ratatouille"}
+                            {:owner/id 4
+                             :owner/name "Paola Carosela"}]})
+{:db-before
+ #datomic.core.db.Db{:id "recipes", :basisT 10, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
+ :db-after
+ #datomic.core.db.Db{:id "recipes", :basisT 11, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
+ :tx-data
+ [#datom[13194139533323 50 #inst "2022-11-09T18:31:33.020-00:00" 13194139533323 true] #datom[87960930222196 75 4 13194139533323 true] #datom[87960930222196 82 "Paola Carosela" 13194139533323 true]],
+ :tempids {}}
+clj꞉aula.4-queries1꞉> 
+#'aula.4-queries1/db
+clj꞉aula.4-queries1꞉> 
+(d/pull db '[*] [:owner/id 4])
+{:db/id 87960930222196, :owner/id 4, :owner/name "Paola Carosela"}
+clj꞉aula.4-queries1꞉> 
+(d/transact conn {:tx-data [{:owner/id 4
+                             :owner/name "Paola Carosella"}]})
+{:db-before
+ #datomic.core.db.Db{:id "recipes", :basisT 11, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
+ :db-after
+ #datomic.core.db.Db{:id "recipes", :basisT 12, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
+ :tx-data
+ [#datom[13194139533324 50 #inst "2022-11-09T18:32:44.614-00:00" 13194139533324 true] #datom[87960930222196 82 "Paola Carosella" 13194139533324 true] #datom[87960930222196 82 "Paola Carosela" 13194139533324 false]],
+ :tempids {}}
+clj꞉aula.4-queries1꞉> 
+(d/pull db '[*] [:owner/id 4])
+{:db/id 87960930222196, :owner/id 4, :owner/name "Paola Carosela"}
+clj꞉aula.4-queries1꞉> 
+(d/pull (d/db conn) '[*] [:owner/id 4])
+{:db/id 87960930222196, :owner/id 4, :owner/name "Paola Carosella"}
+clj꞉aula.4-queries1꞉> 
+(d/pull (d/db conn) '[*] [:recipe/id 1])
+{:db/id 83562883711091,
+ :recipe/id 1,
+ :recipe/name "Cuscuz com queijo",
+ :recipe/ingredients [#:db{:id 1, :ident :db/add} #:db{:id 2, :ident :db/retract}],
+ :recipe/owner #:db{:id 1, :ident :db/add}}
+clj꞉aula.4-queries1꞉> 
+(d/transact conn {:tx-data [{:recipe/id 1
+                             :recipe/name "Cuscuz com queijo"
+                             :recipe/owner [:owner/id 1]
+                             :recipe/ingredients [[:ingredient/id 1] [:ingredient/id 2]]}]})
+{:db-before
+ #datomic.core.db.Db{:id "recipes", :basisT 12, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
+ :db-after
+ #datomic.core.db.Db{:id "recipes", :basisT 13, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
+ :tx-data
+ [#datom[13194139533325 50 #inst "2022-11-09T18:40:06.331-00:00" 13194139533325 true] #datom[83562883711091 81 74766790688880 13194139533325 true] #datom[83562883711091 81 1 13194139533325 false] #datom[83562883711091 79 87960930222162 13194139533325 true] #datom[83562883711091 79 87960930222163 13194139533325 true]],
+ :tempids {}}
+clj꞉aula.4-queries1꞉> 
+(d/pull (d/db conn) '[*] [:recipe/id 1])
+{:db/id 83562883711091,
+ :recipe/id 1,
+ :recipe/name "Cuscuz com queijo",
+ :recipe/ingredients
+ [#:db{:id 1, :ident :db/add} #:db{:id 2, :ident :db/retract} #:db{:id 87960930222162} #:db{:id 87960930222163}],
+ :recipe/owner #:db{:id 74766790688880}}
+clj꞉aula.4-queries1꞉> 
+(d/pull (d/db conn) recipe-pattern [:recipe/id 1])
+#:recipe{:id 1,
+         :name "Cuscuz com queijo",
+         :ingredients [#:ingredient{:id 1, :name "ingredient 1"} #:ingredient{:id 2, :name "ingredient 2"}],
+         :owner #:owner{:name "Ramon Rios"}}
+clj꞉aula.4-queries1꞉> 
+(d/q
+ '[:find  ?id ?name
+   :where
+   [?ingredient :ingredient/id ?id]
+   [?ingredient :ingredient/name ?name]]
+ (d/db conn))
+; Execution error (ExceptionInfo) at datomic.core.error/raise (error.clj:55).
+; :db.error/not-an-entity Unable to resolve entity: :album/id
+clj꞉aula.4-queries1꞉> 
+(d/q
+ '[:find  ?id ?name
+   :where
+   [?ingredient :ingredient/id ?id]
+   [?ingredient :ingredient/name ?name]]
+ (d/db conn))
+[[10 "ingredient 10"]
+ [18 "ingredient 18"]
+ [16 "ingredient 16"]
+ [14 "ingredient 14"]
+ [12 "ingredient 12"]
+ [26 "ingredient 26"]
+ [24 "ingredient 24"]
+ [22 "ingredient 22"]
+ [20 "ingredient 20"]
+ [28 "ingredient 28"]
+ [3 "ingredient 3"]
+ [9 "ingredient 9"]
+ [1 "ingredient 1"]
+ [7 "ingredient 7"]
+ [5 "ingredient 5"]
+ [30 "ingredient 30"]
+ [19 "ingredient 19"]
+ [11 "ingredient 11"]
+ [17 "ingredient 17"]
+ [15 "ingredient 15"]
+ [13 "ingredient 13"]
+ [27 "ingredient 27"]
+ [25 "ingredient 25"]
+ [23 "ingredient 23"]
+ [21 "ingredient 21"]
+ [29 "ingredient 29"]
+ [4 "ingredient 4"]
+ [2 "ingredient 2"]
+ [8 "ingredient 8"]
+ [6 "ingredient 6"]]
+clj꞉aula.4-queries1꞉> 
+(d/pull (d/db conn) '[*] [:ingredient/id 1])
+{:db/id 87960930222162, :ingredient/id 1, :ingredient/name "ingredient 1"}
+clj꞉aula.4-queries1꞉> 
+(d/q
+ '[:find  (pull ?ingredient '[*])
+   :where
+   [?ingredient :ingredient/id ?id]
+   [?ingredient :ingredient/name ?name]]
+ (d/db conn))
+; Execution error (ExceptionInfo) at datomic.core.error/raise (error.clj:55).
+; :db.error/invalid-pull Invalid pull expression (pull (quote [*]))
+clj꞉aula.4-queries1꞉> 
+(d/q
+ '[:find  (pull ?ingredient '[*])
+   :where
+   [?ingredient :ingredient/id ?id]
+   [?ingredient :ingredient/name ?name]]
+ (d/db conn))
+; Execution error (ExceptionInfo) at datomic.core.error/raise (error.clj:55).
+; :db.error/invalid-attr-spec Attribute identifier quote of class: class java.lang.String does not start with a colon
+clj꞉aula.4-queries1꞉> 
+(d/q
+ '[:find  (pull ?ingredient [*])
+   :where
+   [?ingredient :ingredient/id ?id]
+   [?ingredient :ingredient/name ?name]]
+ (d/db conn))
+[[{:db/id 87960930222162, :ingredient/id 1, :ingredient/name "ingredient 1"}]
+ [{:db/id 87960930222163, :ingredient/id 2, :ingredient/name "ingredient 2"}]
+ [{:db/id 87960930222164, :ingredient/id 3, :ingredient/name "ingredient 3"}]
+ [{:db/id 87960930222165, :ingredient/id 4, :ingredient/name "ingredient 4"}]
+ [{:db/id 87960930222166, :ingredient/id 5, :ingredient/name "ingredient 5"}]
+ [{:db/id 87960930222167, :ingredient/id 6, :ingredient/name "ingredient 6"}]
+ [{:db/id 87960930222168, :ingredient/id 7, :ingredient/name "ingredient 7"}]
+ [{:db/id 87960930222169, :ingredient/id 8, :ingredient/name "ingredient 8"}]
+ [{:db/id 87960930222170, :ingredient/id 9, :ingredient/name "ingredient 9"}]
+ [{:db/id 87960930222171, :ingredient/id 10, :ingredient/name "ingredient 10"}]
+ [{:db/id 87960930222172, :ingredient/id 11, :ingredient/name "ingredient 11"}]
+ [{:db/id 87960930222173, :ingredient/id 12, :ingredient/name "ingredient 12"}]
+ [{:db/id 87960930222174, :ingredient/id 13, :ingredient/name "ingredient 13"}]
+ [{:db/id 87960930222175, :ingredient/id 14, :ingredient/name "ingredient 14"}]
+ [{:db/id 87960930222176, :ingredient/id 15, :ingredient/name "ingredient 15"}]
+ [{:db/id 87960930222177, :ingredient/id 16, :ingredient/name "ingredient 16"}]
+ [{:db/id 87960930222178, :ingredient/id 17, :ingredient/name "ingredient 17"}]
+ [{:db/id 87960930222179, :ingredient/id 18, :ingredient/name "ingredient 18"}]
+ [{:db/id 87960930222180, :ingredient/id 19, :ingredient/name "ingredient 19"}]
+ [{:db/id 87960930222181, :ingredient/id 20, :ingredient/name "ingredient 20"}]
+ [{:db/id 87960930222182, :ingredient/id 21, :ingredient/name "ingredient 21"}]
+ [{:db/id 87960930222183, :ingredient/id 22, :ingredient/name "ingredient 22"}]
+ [{:db/id 87960930222184, :ingredient/id 23, :ingredient/name "ingredient 23"}]
+ [{:db/id 87960930222185, :ingredient/id 24, :ingredient/name "ingredient 24"}]
+ [{:db/id 87960930222186, :ingredient/id 25, :ingredient/name "ingredient 25"}]
+ [{:db/id 87960930222187, :ingredient/id 26, :ingredient/name "ingredient 26"}]
+ [{:db/id 87960930222188, :ingredient/id 27, :ingredient/name "ingredient 27"}]
+ [{:db/id 87960930222189, :ingredient/id 28, :ingredient/name "ingredient 28"}]
+ [{:db/id 87960930222190, :ingredient/id 29, :ingredient/name "ingredient 29"}]
+ [{:db/id 87960930222191, :ingredient/id 30, :ingredient/name "ingredient 30"}]]
+clj꞉aula.4-queries1꞉> 
+(first (d/q
+ '[:find  (pull ?ingredient [*])
+   :where
+   [?ingredient :ingredient/id ?id]
+   [?ingredient :ingredient/name ?name]]
+ (d/db conn)))
+[{:db/id 87960930222162, :ingredient/id 1, :ingredient/name "ingredient 1"}]
+clj꞉aula.4-queries1꞉> 
+(mapv first (d/q
+ '[:find  (pull ?ingredient [*])
+   :where
+   [?ingredient :ingredient/id ?id]
+   [?ingredient :ingredient/name ?name]]
+ (d/db conn)))
+[{:db/id 87960930222162, :ingredient/id 1, :ingredient/name "ingredient 1"}
+ {:db/id 87960930222163, :ingredient/id 2, :ingredient/name "ingredient 2"}
+ {:db/id 87960930222164, :ingredient/id 3, :ingredient/name "ingredient 3"}
+ {:db/id 87960930222165, :ingredient/id 4, :ingredient/name "ingredient 4"}
+ {:db/id 87960930222166, :ingredient/id 5, :ingredient/name "ingredient 5"}
+ {:db/id 87960930222167, :ingredient/id 6, :ingredient/name "ingredient 6"}
+ {:db/id 87960930222168, :ingredient/id 7, :ingredient/name "ingredient 7"}
+ {:db/id 87960930222169, :ingredient/id 8, :ingredient/name "ingredient 8"}
+ {:db/id 87960930222170, :ingredient/id 9, :ingredient/name "ingredient 9"}
+ {:db/id 87960930222171, :ingredient/id 10, :ingredient/name "ingredient 10"}
+ {:db/id 87960930222172, :ingredient/id 11, :ingredient/name "ingredient 11"}
+ {:db/id 87960930222173, :ingredient/id 12, :ingredient/name "ingredient 12"}
+ {:db/id 87960930222174, :ingredient/id 13, :ingredient/name "ingredient 13"}
+ {:db/id 87960930222175, :ingredient/id 14, :ingredient/name "ingredient 14"}
+ {:db/id 87960930222176, :ingredient/id 15, :ingredient/name "ingredient 15"}
+ {:db/id 87960930222177, :ingredient/id 16, :ingredient/name "ingredient 16"}
+ {:db/id 87960930222178, :ingredient/id 17, :ingredient/name "ingredient 17"}
+ {:db/id 87960930222179, :ingredient/id 18, :ingredient/name "ingredient 18"}
+ {:db/id 87960930222180, :ingredient/id 19, :ingredient/name "ingredient 19"}
+ {:db/id 87960930222181, :ingredient/id 20, :ingredient/name "ingredient 20"}
+ {:db/id 87960930222182, :ingredient/id 21, :ingredient/name "ingredient 21"}
+ {:db/id 87960930222183, :ingredient/id 22, :ingredient/name "ingredient 22"}
+ {:db/id 87960930222184, :ingredient/id 23, :ingredient/name "ingredient 23"}
+ {:db/id 87960930222185, :ingredient/id 24, :ingredient/name "ingredient 24"}
+ {:db/id 87960930222186, :ingredient/id 25, :ingredient/name "ingredient 25"}
+ {:db/id 87960930222187, :ingredient/id 26, :ingredient/name "ingredient 26"}
+ {:db/id 87960930222188, :ingredient/id 27, :ingredient/name "ingredient 27"}
+ {:db/id 87960930222189, :ingredient/id 28, :ingredient/name "ingredient 28"}
+ {:db/id 87960930222190, :ingredient/id 29, :ingredient/name "ingredient 29"}
+ {:db/id 87960930222191, :ingredient/id 30, :ingredient/name "ingredient 30"}]
+clj꞉aula.4-queries1꞉> 
+(d/q
+ '[:find  (pull ?e [*])
+   :where
+   [?e :ingredient/id ?id]
+   [?e :ingredient/name ?name]]
+ (d/db conn))
+; Execution error (ExceptionInfo) at datomic.core.error/raise (error.clj:55).
+; :db.error/invalid-attr-spec Attribute identifier quote of class: class java.lang.String does not start with a colon
+clj꞉aula.4-queries1꞉> 
+(d/q
+ '[:find  (pull ?e [*])
+   :where
+   [?e :ingredient/id ?id]
+   [?e :ingredient/name ?name]]
+ (d/db conn))
+[[{:db/id 87960930222162, :ingredient/id 1, :ingredient/name "ingredient 1"}]
+ [{:db/id 87960930222163, :ingredient/id 2, :ingredient/name "ingredient 2"}]
+ [{:db/id 87960930222164, :ingredient/id 3, :ingredient/name "ingredient 3"}]
+ [{:db/id 87960930222165, :ingredient/id 4, :ingredient/name "ingredient 4"}]
+ [{:db/id 87960930222166, :ingredient/id 5, :ingredient/name "ingredient 5"}]
+ [{:db/id 87960930222167, :ingredient/id 6, :ingredient/name "ingredient 6"}]
+ [{:db/id 87960930222168, :ingredient/id 7, :ingredient/name "ingredient 7"}]
+ [{:db/id 87960930222169, :ingredient/id 8, :ingredient/name "ingredient 8"}]
+ [{:db/id 87960930222170, :ingredient/id 9, :ingredient/name "ingredient 9"}]
+ [{:db/id 87960930222171, :ingredient/id 10, :ingredient/name "ingredient 10"}]
+ [{:db/id 87960930222172, :ingredient/id 11, :ingredient/name "ingredient 11"}]
+ [{:db/id 87960930222173, :ingredient/id 12, :ingredient/name "ingredient 12"}]
+ [{:db/id 87960930222174, :ingredient/id 13, :ingredient/name "ingredient 13"}]
+ [{:db/id 87960930222175, :ingredient/id 14, :ingredient/name "ingredient 14"}]
+ [{:db/id 87960930222176, :ingredient/id 15, :ingredient/name "ingredient 15"}]
+ [{:db/id 87960930222177, :ingredient/id 16, :ingredient/name "ingredient 16"}]
+ [{:db/id 87960930222178, :ingredient/id 17, :ingredient/name "ingredient 17"}]
+ [{:db/id 87960930222179, :ingredient/id 18, :ingredient/name "ingredient 18"}]
+ [{:db/id 87960930222180, :ingredient/id 19, :ingredient/name "ingredient 19"}]
+ [{:db/id 87960930222181, :ingredient/id 20, :ingredient/name "ingredient 20"}]
+ [{:db/id 87960930222182, :ingredient/id 21, :ingredient/name "ingredient 21"}]
+ [{:db/id 87960930222183, :ingredient/id 22, :ingredient/name "ingredient 22"}]
+ [{:db/id 87960930222184, :ingredient/id 23, :ingredient/name "ingredient 23"}]
+ [{:db/id 87960930222185, :ingredient/id 24, :ingredient/name "ingredient 24"}]
+ [{:db/id 87960930222186, :ingredient/id 25, :ingredient/name "ingredient 25"}]
+ [{:db/id 87960930222187, :ingredient/id 26, :ingredient/name "ingredient 26"}]
+ [{:db/id 87960930222188, :ingredient/id 27, :ingredient/name "ingredient 27"}]
+ [{:db/id 87960930222189, :ingredient/id 28, :ingredient/name "ingredient 28"}]
+ [{:db/id 87960930222190, :ingredient/id 29, :ingredient/name "ingredient 29"}]
+ [{:db/id 87960930222191, :ingredient/id 30, :ingredient/name "ingredient 30"}]]
+clj꞉aula.4-queries1꞉> 
+(d/q
+ '[:find  (pull ?e [*])
+   :in db ?id
+   :where
+   [?e :ingredient/id ?id]]
+ (d/db conn) 20)
+; Execution error (ExceptionInfo) at datomic.core.error/raise (error.clj:55).
+; :db.error/invalid-data-source Nil or missing data source. Did you forget to pass a database argument?
+clj꞉aula.4-queries1꞉> 
+(d/q
+ '[:find (pull ?e pattern)
+   :in $ ?id pattern
+   :where
+   [?e :ingredient/id ?id]]
+ (d/db conn) 20 [:ingredient/id
+                 :ingredient/name])
+[[{:db/id 87960930222181, :ingredient/id 20, :ingredient/name "ingredient 20"}]]
+clj꞉aula.4-queries1꞉> 
+(d/q
+ '[:find (pull ?e pattern)
+   :in $ ?id pattern
+   :where
+   [?e :ingredient/id ?id]]
+ (d/db conn) 20 [:ingredient/id
+                 :ingredient/name])
+[[#:ingredient{:id 20, :name "ingredient 20"}]]
+clj꞉aula.4-queries1꞉> 
+{:ingredient/name "adfjasdf" :ingredient/id 1}
+#:ingredient{:name "adfjasdf", :id 1}
+clj꞉aula.4-queries1꞉> 
+(d/q
+ '[:find (pull ?e pattern)
+   :in $ ?id pattern
+   :where
+   [?e :recipe/id ?id]]
+ (d/db conn) 1 recipe-pattern)
+[[#:recipe{:id 1,
+           :name "Cuscuz com queijo",
+           :ingredients [#:ingredient{:id 1, :name "ingredient 1"} #:ingredient{:id 2, :name "ingredient 2"}],
+           :owner #:owner{:name "Ramon Rios"}}]]
+clj꞉aula.4-queries1꞉> 
+(d/q
+ '[:find (pull ?e pattern)
+   :in $ pattern
+   :where
+   [?e :recipe/id ?id]]
+ (d/db conn) recipe-pattern)
+[[#:recipe{:id 1,
+           :name "Cuscuz com queijo",
+           :ingredients [#:ingredient{:id 1, :name "ingredient 1"} #:ingredient{:id 2, :name "ingredient 2"}],
+           :owner #:owner{:name "Ramon Rios"}}]]
+clj꞉aula.4-queries1꞉> 
+(d/transact conn {:tx-data [{:recipe/id 2
+                             :recipe/name "Sanduba de Pernil do estadão"
+                             :recipe/owner [:owner/id 4]
+                             :recipe/ingredients [[:ingredient/id 20] [:ingredient/id 12]]}]})
+{:db-before
+ #datomic.core.db.Db{:id "recipes", :basisT 13, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
+ :db-after
+ #datomic.core.db.Db{:id "recipes", :basisT 14, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
+ :tx-data
+ [#datom[13194139533326 50 #inst "2022-11-09T18:57:51.739-00:00" 13194139533326 true] #datom[83562883711093 77 2 13194139533326 true] #datom[83562883711093 78 "Sanduba de Pernil do estadão" 13194139533326 true] #datom[83562883711093 81 87960930222196 13194139533326 true] #datom[83562883711093 79 87960930222181 13194139533326 true] #datom[83562883711093 79 87960930222173 13194139533326 true]],
+ :tempids {}}
+clj꞉aula.4-queries1꞉> 
+(d/q
+ '[:find (pull ?e pattern)
+   :in $ pattern
+   :where
+   [?e :recipe/id ?id]]
+ (d/db conn) recipe-pattern)
+[[#:recipe{:id 1,
+           :name "Cuscuz com queijo",
+           :ingredients [#:ingredient{:id 1, :name "ingredient 1"} #:ingredient{:id 2, :name "ingredient 2"}],
+           :owner #:owner{:name "Ramon Rios"}}]
+ [#:recipe{:id 2,
+           :name "Sanduba de Pernil do estadão",
+           :ingredients [#:ingredient{:id 12, :name "ingredient 12"} #:ingredient{:id 20, :name "ingredient 20"}],
+           :owner #:owner{:name "Paola Carosella"}}]]
+clj꞉aula.4-queries1꞉> 
+(d/q '[:find ?recipe-id ?recipe-name ?ingredient-name ?owner-name
+       :keys recipe-id recipe-name ingredient-name owner-name
+       :where
+       [?recipe :recipe/id ?recipe-id]
+       [?recipe :recipe/name ?recipe-name]
+       [?recipe :recipe/ingredients ?ingredients]
+       [?ingredients :ingredient/name ?ingredient-name]
+       [?recipe :recipe/owner ?owner]
+       [?owner :owner/name ?owner-name]]
+     (d/db conn))
+; Execution error (ExceptionInfo) at datomic.core.error/raise (error.clj:55).
+; :db.error/unbound-query-variables Query is referencing unbound variables: #{?ingredient-name}
+clj꞉aula.4-queries1꞉> 
+(d/q '[:find ?recipe-id ?recipe-name ?ingredient-name ?owner-name
+       :keys recipe-id recipe-name ingredient-name owner-name
+       :where
+       [?recipe :recipe/id ?recipe-id]
+       [?recipe :recipe/name ?recipe-name]
+       [?recipe :recipe/ingredients ?ingredients]
+       [?ingredients :ingredient/name ?ingredient-name]
+       [?recipe :recipe/owner ?owner]
+       [?owner :owner/name ?owner-name]]
+     (d/db conn))
+[{:recipe-id 2,
+  :recipe-name "Sanduba de Pernil do estadão",
+  :ingredient-name "ingredient 12",
+  :owner-name "Paola Carosella"}
+ {:recipe-id 2,
+  :recipe-name "Sanduba de Pernil do estadão",
+  :ingredient-name "ingredient 20",
+  :owner-name "Paola Carosella"}
+ {:recipe-id 1, :recipe-name "Cuscuz com queijo", :ingredient-name "ingredient 1", :owner-name "Ramon Rios"}
+ {:recipe-id 1, :recipe-name "Cuscuz com queijo", :ingredient-name "ingredient 2", :owner-name "Ramon Rios"}]
+clj꞉aula.4-queries1꞉> 
