@@ -1,6 +1,9 @@
-true
-clj꞉aula6-predicates.core꞉> 
-; nREPL Connection was closed
+; This is the Calva evaluation results output window.
+; TIPS: The keyboard shortcut `ctrl+alt+o o` shows and focuses this window
+;   when connected to a REPL session.
+; Please see https://calva.io/output/ for more info.
+; Happy coding! ♥️
+
 ; Jacking in...
 ; Starting Jack-in Terminal: lein update-in :dependencies conj '[nrepl,"1.0.0"]' -- update-in :plugins conj '[cider/cider-nrepl,"0.28.5"]' -- update-in '[:repl-options,:nrepl-middleware]' conj '["cider.nrepl/cider-middleware"]' -- repl :headless
 ; Hooking up nREPL sessions...
@@ -12,346 +15,77 @@ clj꞉aula6-predicates.core꞉> 
 ;   - `alt+up` and `alt+down` traverse up and down the REPL command history
 ;      when the cursor is after the last contents at the prompt
 ;   - Clojure lines in stack traces are peekable and clickable.
-clj꞉aula6-predicates.core꞉> 
+clj꞉aula6-predicates.core꞉>  ; Use `alt+enter` to evaluate
 ; Jack-in done.
 clj꞉aula6-predicates.core꞉> 
-#'aula6-predicates.core/client
-clj꞉aula6-predicates.core꞉> 
+#'aula6-predicates.exercicio/music-store
+clj꞉aula6-predicates.exercicio꞉> 
+; Syntax error compiling at (src/aula6_predicates/exercicio.clj:91:15).
+; No such namespace: d
+clj꞉aula6-predicates.exercicio꞉> 
+; Evaluating file: exercicio.clj
+nil
+clj꞉aula6-predicates.exercicio꞉> 
+#'aula6-predicates.exercicio/client
+clj꞉aula6-predicates.exercicio꞉> 
 true
-clj꞉aula6-predicates.core꞉> 
-#'aula6-predicates.core/conn
-clj꞉aula6-predicates.core꞉> 
-(d/transact conn {:tx-data })#'aula6-predicates.core/genre
-clj꞉aula6-predicates.core꞉> 
-#'aula6-predicates.core/make-idents
-clj꞉aula6-predicates.core꞉> 
-(d/transact conn {:tx-data (make-idents genre)})
+clj꞉aula6-predicates.exercicio꞉> 
+true
+clj꞉aula6-predicates.exercicio꞉> 
+#'aula6-predicates.exercicio/make-idents
+clj꞉aula6-predicates.exercicio꞉> 
+#'aula6-predicates.exercicio/genre
+clj꞉aula6-predicates.exercicio꞉> 
+true
+clj꞉aula6-predicates.exercicio꞉> 
+#'aula6-predicates.exercicio/conn
+clj꞉aula6-predicates.exercicio꞉> 
 {:db-before
  #datomic.core.db.Db{:id "albuns", :basisT 5, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
  :db-after
  #datomic.core.db.Db{:id "albuns", :basisT 6, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
  :tx-data
- [#datom[13194139533318 50 #inst "2022-11-16T18:21:04.361-00:00" 13194139533318 true] #datom[92358976733257 10 :pop 13194139533318 true] #datom[92358976733258 10 :rock 13194139533318 true] #datom[92358976733259 10 :mpb 13194139533318 true] #datom[92358976733260 10 :bossa 13194139533318 true] #datom[92358976733261 10 :reaggue 13194139533318 true] #datom[92358976733262 10 :rap 13194139533318 true] #datom[92358976733263 10 :sertanejo 13194139533318 true]],
+ [#datom[13194139533318 50 #inst "2022-11-17T23:32:32.695-00:00" 13194139533318 true] #datom[73 10 :artist/id 13194139533318 true] #datom[73 41 35 13194139533318 true] #datom[73 42 38 13194139533318 true] #datom[73 40 22 13194139533318 true] #datom[74 10 :artist/name 13194139533318 true] #datom[74 41 35 13194139533318 true] #datom[74 40 23 13194139533318 true] #datom[75 10 :album/id 13194139533318 true] #datom[75 41 35 13194139533318 true] #datom[75 42 38 13194139533318 true] #datom[75 40 22 13194139533318 true] #datom[76 10 :album/name 13194139533318 true] #datom[76 41 35 13194139533318 true] #datom[76 40 23 13194139533318 true] #datom[77 10 :album/artist 13194139533318 true] #datom[77 41 36 13194139533318 true] #datom[77 40 20 13194139533318 true] #datom[78 10 :album/release-year 13194139533318 true] #datom[78 41 35 13194139533318 true] #datom[78 40 22 13194139533318 true] #datom[79 10 :album/music-genre 13194139533318 true] #datom[79 41 35 13194139533318 true] #datom[79 40 20 13194139533318 true] #datom[0 13 73 13194139533318 true] #datom[0 13 74 13194139533318 true] #datom[0 13 75 13194139533318 true] #datom[0 13 76 13194139533318 true] #datom[0 13 77 13194139533318 true] #datom[0 13 78 13194139533318 true] #datom[0 13 79 13194139533318 true]],
  :tempids {}}
-clj꞉aula6-predicates.core꞉> 
-(d/db conn)
-#datomic.core.db.Db{:id "albuns", :basisT 6, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil}
-clj꞉aula6-predicates.core꞉> 
-(d/pull (d/db conn) [:pop])
-; Execution error (NullPointerException) at com.google.common.base.Preconditions/checkNotNull (Preconditions.java:889).
-; null
-clj꞉aula6-predicates.core꞉> 
-(d/transact conn {:tx-data music-store})0
-clj꞉aula6-predicates.core꞉> 
-#'aula6-predicates.core/music-store
-clj꞉aula6-predicates.core꞉> 
-(d/transact conn {:tx-data music-store})
+clj꞉aula6-predicates.exercicio꞉> 
 {:db-before
  #datomic.core.db.Db{:id "albuns", :basisT 6, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
  :db-after
  #datomic.core.db.Db{:id "albuns", :basisT 7, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
  :tx-data
- [#datom[13194139533319 50 #inst "2022-11-16T18:23:54.405-00:00" 13194139533319 true] #datom[73 10 :artist/id 13194139533319 true] #datom[73 41 35 13194139533319 true] #datom[73 42 38 13194139533319 true] #datom[73 40 22 13194139533319 true] #datom[74 10 :artist/name 13194139533319 true] #datom[74 41 35 13194139533319 true] #datom[74 40 23 13194139533319 true] #datom[75 10 :album/id 13194139533319 true] #datom[75 41 35 13194139533319 true] #datom[75 42 38 13194139533319 true] #datom[75 40 22 13194139533319 true] #datom[76 10 :album/name 13194139533319 true] #datom[76 41 35 13194139533319 true] #datom[76 40 23 13194139533319 true] #datom[77 10 :album/artist 13194139533319 true] #datom[77 41 35 13194139533319 true] #datom[77 40 20 13194139533319 true] #datom[78 10 :album/release-year 13194139533319 true] #datom[78 41 35 13194139533319 true] #datom[78 40 22 13194139533319 true] #datom[79 10 :album/music-genre 13194139533319 true] #datom[79 41 35 13194139533319 true] #datom[79 40 20 13194139533319 true] #datom[0 13 73 13194139533319 true] #datom[0 13 74 13194139533319 true] #datom[0 13 75 13194139533319 true] #datom[0 13 76 13194139533319 true] #datom[0 13 77 13194139533319 true] #datom[0 13 78 13194139533319 true] #datom[0 13 79 13194139533319 true]],
+ [#datom[13194139533319 50 #inst "2022-11-17T23:32:55.830-00:00" 13194139533319 true] #datom[96757023244368 73 1 13194139533319 true] #datom[96757023244368 74 "Fresno" 13194139533319 true] #datom[96757023244369 73 2 13194139533319 true] #datom[96757023244369 74 "Gal Costa" 13194139533319 true] #datom[96757023244370 73 3 13194139533319 true] #datom[96757023244370 74 "Milton 'Bituca' Nascimento" 13194139533319 true] #datom[96757023244371 73 4 13194139533319 true] #datom[96757023244371 74 "Belchior" 13194139533319 true] #datom[96757023244372 73 5 13194139533319 true] #datom[96757023244372 74 "Chico Buarque" 13194139533319 true] #datom[96757023244373 73 6 13194139533319 true] #datom[96757023244373 74 "Silva" 13194139533319 true]],
  :tempids {}}
-clj꞉aula6-predicates.core꞉> 
-#'aula6-predicates.core/artists
-clj꞉aula6-predicates.core꞉> 
-#'aula6-predicates.core/artists
-clj꞉aula6-predicates.core꞉> 
-(d/transact conn {:tx-data artists})
+clj꞉aula6-predicates.exercicio꞉> 
 {:db-before
  #datomic.core.db.Db{:id "albuns", :basisT 7, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
  :db-after
  #datomic.core.db.Db{:id "albuns", :basisT 8, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
  :tx-data
- [#datom[13194139533320 50 #inst "2022-11-16T18:25:21.333-00:00" 13194139533320 true] #datom[96757023244368 73 1 13194139533320 true] #datom[96757023244368 74 "Fresno" 13194139533320 true] #datom[96757023244369 73 2 13194139533320 true] #datom[96757023244369 74 "Gal Costa" 13194139533320 true] #datom[96757023244370 73 3 13194139533320 true] #datom[96757023244370 74 "Milton 'Bituca' Nascimento" 13194139533320 true] #datom[96757023244371 73 4 13194139533320 true] #datom[96757023244371 74 "Belchior" 13194139533320 true] #datom[96757023244372 73 5 13194139533320 true] #datom[96757023244372 74 "Chico Buarque" 13194139533320 true] #datom[96757023244373 73 6 13194139533320 true] #datom[96757023244373 74 "Silva" 13194139533320 true]],
+ [#datom[13194139533320 50 #inst "2022-11-17T23:33:15.973-00:00" 13194139533320 true] #datom[79164837199958 10 :pop 13194139533320 true] #datom[79164837199959 10 :rock 13194139533320 true] #datom[79164837199960 10 :mpb 13194139533320 true] #datom[79164837199961 10 :bossa 13194139533320 true] #datom[79164837199962 10 :reaggue 13194139533320 true] #datom[79164837199963 10 :rap 13194139533320 true] #datom[79164837199964 10 :sertanejo 13194139533320 true]],
  :tempids {}}
-clj꞉aula6-predicates.core꞉> 
-(d/q '[:find ?name
-       :where [_ :artist/name ?name]
-       [(clojure.string/includes? ?name "Chico ")]]
-     (d/db conn))
-[["Chico Buarque"]]
-clj꞉aula6-predicates.core꞉> 
-(d/transact conn {:tx-data [{:artist/id 7
-                             :artist/name "Chico Science"}]})
+clj꞉aula6-predicates.exercicio꞉> 
+#'aula6-predicates.exercicio/albuns
+clj꞉aula6-predicates.exercicio꞉> 
 {:db-before
  #datomic.core.db.Db{:id "albuns", :basisT 8, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
  :db-after
  #datomic.core.db.Db{:id "albuns", :basisT 9, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
  :tx-data
- [#datom[13194139533321 50 #inst "2022-11-16T18:29:03.477-00:00" 13194139533321 true] #datom[79164837199958 73 7 13194139533321 true] #datom[79164837199958 74 "Chico Science" 13194139533321 true]],
+ [#datom[13194139533321 50 #inst "2022-11-17T23:33:55.136-00:00" 13194139533321 true] #datom[87960930222173 75 1 13194139533321 true] #datom[87960930222173 76 "A Sinfonia que em tudo há" 13194139533321 true] #datom[87960930222173 77 73 13194139533321 true] #datom[87960930222173 77 1 13194139533321 true] #datom[87960930222173 78 2017 13194139533321 true] #datom[87960930222173 79 79164837199959 13194139533321 true] #datom[87960930222174 75 10 13194139533321 true] #datom[87960930222174 76 "Ciano" 13194139533321 true] #datom[87960930222174 77 73 13194139533321 true] #datom[87960930222174 77 1 13194139533321 true] #datom[87960930222174 78 2005 13194139533321 true] #datom[87960930222174 79 79164837199959 13194139533321 true] #datom[87960930222175 75 2 13194139533321 true] #datom[87960930222175 76 "Construção" 13194139533321 true] #datom[87960930222175 77 73 13194139533321 true] #datom[87960930222175 77 5 13194139533321 true] #datom[87960930222175 78 1971 13194139533321 true] #datom[87960930222175 79 79164837199960 13194139533321 true] #datom[87960930222176 75 3 13194139533321 true] #datom[87960930222176 78 1986 13194139533321 true] #datom[87960930222176 76 "Caçador de mim" 13194139533321 true] #datom[87960930222176 77 73 13194139533321 true] #datom[87960930222176 77 3 13194139533321 true] #datom[87960930222176 79 79164837199959 13194139533321 true]],
  :tempids {}}
-clj꞉aula6-predicates.core꞉> 
-(d/q '[:find ?name
-       :where [_ :artist/name ?name]
-       [(clojure.string/includes? ?name "Chico ")]]
-     (d/db conn))
-[["Chico Science"] ["Chico Buarque"]]
-clj꞉aula6-predicates.core꞉> 
-#'aula6-predicates.core/albuns
-clj꞉aula6-predicates.core꞉> 
-(d/transact conn {:tx-data albuns})
+clj꞉aula6-predicates.exercicio꞉> 
+; Execution error (NullPointerException) at com.google.common.base.Preconditions/checkNotNull (Preconditions.java:889).
+; null
+clj꞉aula6-predicates.exercicio꞉> 
 ; Execution error (ExceptionInfo) at datomic.core.error/raise (error.clj:55).
-; :db.error/not-an-entity Unable to resolve entity: :album/gender
-clj꞉aula6-predicates.core꞉> 
-#'aula6-predicates.core/albuns
-clj꞉aula6-predicates.core꞉> 
-(d/transact conn {:tx-data albuns})
-{:db-before
- #datomic.core.db.Db{:id "albuns", :basisT 9, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
- :db-after
- #datomic.core.db.Db{:id "albuns", :basisT 10, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
- :tx-data
- [#datom[13194139533322 50 #inst "2022-11-16T18:30:21.628-00:00" 13194139533322 true] #datom[79164837199959 75 1 13194139533322 true] #datom[79164837199959 76 "A Sinfonia que em tudo há" 13194139533322 true] #datom[79164837199959 77 96757023244368 13194139533322 true] #datom[79164837199959 78 2017 13194139533322 true] #datom[79164837199959 79 92358976733258 13194139533322 true] #datom[79164837199960 75 2 13194139533322 true] #datom[79164837199960 76 "Construção" 13194139533322 true] #datom[79164837199960 77 96757023244372 13194139533322 true] #datom[79164837199960 78 1971 13194139533322 true] #datom[79164837199960 79 92358976733259 13194139533322 true] #datom[79164837199961 75 3 13194139533322 true] #datom[79164837199961 76 "Caçador de mim" 13194139533322 true] #datom[79164837199961 77 96757023244370 13194139533322 true] #datom[79164837199961 79 92358976733258 13194139533322 true]],
- :tempids {}}
-clj꞉aula6-predicates.core꞉> 
-#'aula6-predicates.core/pattern-album
-clj꞉aula6-predicates.core꞉> 
-(d/transact conn {:tx-data artists})#'aula6-predicates.core/albuns
-clj꞉aula6-predicates.core꞉> 
-(d/transact conn {:tx-data albuns})
-{:db-before
- #datomic.core.db.Db{:id "albuns", :basisT 10, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
- :db-after
- #datomic.core.db.Db{:id "albuns", :basisT 11, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
- :tx-data
- [#datom[13194139533323 50 #inst "2022-11-16T18:38:14.575-00:00" 13194139533323 true] #datom[79164837199961 78 1986 13194139533323 true]],
- :tempids {}}
-clj꞉aula6-predicates.core꞉> 
-(d/q '[:find e? pattern-album
-       :where  [_ :artist/release-year ?release-year]
-       [(< ?release-year 2000)]]
-     (d/db conn))
-; Execution error (IllegalArgumentException) at datomic.core.query/validate-query (query.clj:295).
-; Argument e? in :find is not a variable
-clj꞉aula6-predicates.core꞉> 
-(d/q '[:find ?e pattern-album
-       :where  [_ :artist/release-year ?release-year]
-       [(< ?release-year 2000)]]
-     (d/db conn))
-; Execution error (IllegalArgumentException) at datomic.core.query/validate-query (query.clj:295).
-; Argument pattern-album in :find is not a variable
-clj꞉aula6-predicates.core꞉> 
-(d/q '[:find (pull ?e pattern-album)
-       :in $ pattern-album
-       :where  [?e :artist/release-year ?release-year]
-       [(< ?release-year 2000)]]
-     (d/db conn))
-; Execution error (ExceptionInfo) at datomic.core.error/raise (error.clj:55).
-; :db.error/too-few-inputs Query expected 2 inputs but received 1
-clj꞉aula6-predicates.core꞉> 
-(d/q '[:find (pull ?e pattern-album)
-       :where  [?e :artist/release-year ?release-year]
-       [(< ?release-year 2000)]]
-     (d/db conn))
-; Execution error (ExceptionInfo) at datomic.core.error/raise (error.clj:55).
-; :db.error/pattern-not-bound Pull pattern not found in inputs: pattern-album
-clj꞉aula6-predicates.core꞉> 
-(d/q '[:find (pull ?e pattern-album)
-       :where  [?e :artist/release-year ?release-year]
-       [(< ?release-year 2000)]]
-     (d/db conn) pattern-album)
-; Execution error (ExceptionInfo) at datomic.core.error/raise (error.clj:55).
-; :db.error/pattern-not-bound Pull pattern not found in inputs: pattern-album
-clj꞉aula6-predicates.core꞉> 
-(d/q '[:find (pull ?e ?pattern-album)
-       :in $ ?pattern-album
-       :where  [?e :artist/release-year ?release-year]
-       [(< ?release-year 2000)]]
-     (d/db conn) pattern-album)
-; Execution error (ExceptionInfo) at datomic.core.error/raise (error.clj:55).
-; :db.error/invalid-pull Invalid pull expression (pull ?e ?pattern-album)
-clj꞉aula6-predicates.core꞉> 
-(d/q '[:find (pull ?e pattern-album)
-       :in $ ?pattern-album
-       :where  [?e :artist/release-year ?release-year]
-       [(< ?release-year 2000)]]
-     (d/db conn) pattern-album)
-; Execution error (ExceptionInfo) at datomic.core.error/raise (error.clj:55).
-; :db.error/pattern-not-bound Pull pattern not found in inputs: pattern-album
-clj꞉aula6-predicates.core꞉> 
-(d/q '[:find (pull ?e pattern-album)
-       :in $ pattern-album
-       :where  [?e :artist/release-year ?release-year]
-       [(< ?release-year 2000)]]
-     (d/db conn) pattern-album)
-; Execution error (ExceptionInfo) at datomic.core.error/raise (error.clj:55).
-; :db.error/not-an-entity Unable to resolve entity: :artist/release-year
-clj꞉aula6-predicates.core꞉> 
-(d/q '[:find (pull ?e pattern-album)
-       :in $ pattern-album
-       :where  [?e :album/release-year ?release-year]
-       [(< ?release-year 2000)]]
-     (d/db conn) pattern-album)
-[[#:album{:id 2, :name "Construção", :release-year 1971, :artist #:artist{:name "Chico Buarque"}}]
- [#:album{:id 3, :name "Caçador de mim", :release-year 1986, :artist #:artist{:name "Milton 'Bituca' Nascimento"}}]]
-clj꞉aula6-predicates.core꞉> 
-(d/q {:query '[:find (pull ?e pattern-album)
-               :in $ pattern-album
-               :where  [?e :album/release-year ?release-year]
-               [?e :album/name ?name]
-               [(< ?release-year 2000)]
-               [(clojure.string/upper-case ?name) ?name]]
-      :args [(d/db conn) pattern-album]})
-; Execution error (NullPointerException) at datomic.core.datalog.FnRel/proc (datalog.clj:715).
-; Cannot invoke "java.lang.Character.charValue()" because "x" is null
-clj꞉aula6-predicates.core꞉> 
-(d/q {:query '[:find ?name ?release-year
-               :in $ pattern-album
-               :where  [?e :album/release-year ?release-year]
-               [?e :album/name ?name]
-               [(< ?release-year 2000)]
-               [(count ?name) ?name]]
-      :args [(d/db conn) pattern-album]})
-; Execution error (NullPointerException) at datomic.core.datalog.FnRel/proc (datalog.clj:715).
-; Cannot invoke "java.lang.Character.charValue()" because "x" is null
-clj꞉aula6-predicates.core꞉> 
-(d/q {:query '[:find ?name ?release-year
-               :where  [?e :album/release-year ?release-year]
-               [?e :album/name ?name]
-               [(< ?release-year 2000)]
-               [(count ?name) ?name]]
-      :args [(d/db conn)]})
-; Execution error (NullPointerException) at datomic.core.datalog.FnRel/proc (datalog.clj:715).
-; Cannot invoke "java.lang.Character.charValue()" because "x" is null
-clj꞉aula6-predicates.core꞉> 
-(d/q {:query '[:find ?name ?release-year
-               :where  [?e :album/release-year ?release-year]
-               [(< ?release-year 2000)]
-               [(count ?name) ?name]]
-      :args [(d/db conn)]})
-; Execution error (ExceptionInfo) at datomic.core.error/raise (error.clj:55).
-; :db.error/insufficient-binding [?name] not bound in expression clause: [(count ?name) ?name]
-clj꞉aula6-predicates.core꞉> 
-(d/q {:query '[:find (pull ?e pattern-album)
-               :in $ pattern-album
-               :where  [?e :album/release-year ?release-year]
-               [?e :album/name ?name]
-               [(count ?name) ?name]]
-      :args [(d/db conn) pattern-album]})
-; Execution error (NullPointerException) at datomic.core.datalog.FnRel/proc (datalog.clj:715).
-; Cannot invoke "java.lang.Character.charValue()" because "x" is null
-clj꞉aula6-predicates.core꞉> 
-(d/q {:query '[:find ?e
-               :in $ pattern-album
-               :where  [?e :album/release-year ?release-year]
-               [?e :album/name ?name]
-               [(count ?name) ?name]]
-      :args [(d/db conn) pattern-album]})
-; Execution error (NullPointerException) at datomic.core.datalog.FnRel/proc (datalog.clj:715).
-; Cannot invoke "java.lang.Character.charValue()" because "x" is null
-clj꞉aula6-predicates.core꞉> 
-(d/q {:query '[:find (pull ?e pattern-album)
-               :in $ pattern-album
-               :where  [?e :album/release-year ?release-year]
-               [?e :album/name ?name]
-               [(< ?release-year 2000)]
-               [(count ?name) ?name]]
-      :args [(d/db conn) pattern-album]})#'aula6-predicates.core/pattern-album
-clj꞉aula6-predicates.core꞉> 
-(d/q {:query '[:find (pull ?e pattern-album)
-               :in $ pattern-album
-               :where  [?e :album/release-year ?release-year]
-               [?e :album/name ?name]
-               [(< ?release-year 2000)]
-               [(clojure.string/upper-case ?name) ?name]]
-      :args [(d/db conn) pattern-album]})
-; Execution error (NullPointerException) at datomic.core.datalog.FnRel/proc (datalog.clj:715).
-; Cannot invoke "java.lang.Character.charValue()" because "x" is null
-clj꞉aula6-predicates.core꞉> 
-(d/q {:query '[:find ?name ?release-year
-               :where  [?e :album/release-year ?release-year]
-               [?e :album/name ?name]
-               [(< ?release-year 2000)]
-               [(count ?name) ?name]]
-      :args [(d/db conn)]})
-; Execution error (NullPointerException) at datomic.core.datalog.FnRel/proc (datalog.clj:715).
-; Cannot invoke "java.lang.Character.charValue()" because "x" is null
-clj꞉aula6-predicates.core꞉> 
-(d/q {:query '[:find ?name ?release-year
-               :where  [?e :album/release-year ?release-year]
-               [?e :album/name ?name]
-               [(< ?release-year 2000)]]
-      :args [(d/db conn)]})
-[["Caçador de mim" 1986] ["Construção" 1971]]
-clj꞉aula6-predicates.core꞉> 
-(d/q {:query '[:find (pull ? pattern-album)
-               :in $ pattern-album
-               :where  [?e :album/release-year ?release-year]
-               [?e :album/name ?name]]
-      :args [(d/db conn) pattern-album]})
-; Execution error (ExceptionInfo) at datomic.core.error/raise (error.clj:55).
-; :db.error/unbound-query-variables Query is referencing unbound variables: #{?}
-clj꞉aula6-predicates.core꞉> 
-(d/q {:query '[:find (pull ? pattern-album)
-               :in $ pattern-album
-               :where  [?e :album/release-year ?release-year]
-               [?e :album/name ?name]]
-      :args [(d/db conn) pattern-album]})
-; Execution error (ExceptionInfo) at datomic.core.error/raise (error.clj:55).
-; :db.error/unbound-query-variables Query is referencing unbound variables: #{?}
-clj꞉aula6-predicates.core꞉> 
-(d/q {:query '[:find (pull ?e pattern-album)
-               :in $ pattern-album
-               :where  [?e :album/release-year ?release-year]
-               [?e :album/name ?name]]
-      :args [(d/db conn) pattern-album]})
-[[#:album{:id 1, :name "A Sinfonia que em tudo há", :release-year 2017, :artist #:artist{:name "Fresno"}}]
- [#:album{:id 2, :name "Construção", :release-year 1971, :artist #:artist{:name "Chico Buarque"}}]
- [#:album{:id 3, :name "Caçador de mim", :release-year 1986, :artist #:artist{:name "Milton 'Bituca' Nascimento"}}]]
-clj꞉aula6-predicates.core꞉> 
-#'aula6-predicates.core/pattern-album
-clj꞉aula6-predicates.core꞉> 
-(d/q {:query '[:find (pull ?e pattern-album)
-               :in $ pattern-album
-               :where  [?e :album/release-year ?release-year]
-               [?e :album/name ?name]]
-      :args [(d/db conn) pattern-album]})
-[[#:album{:id 1, :name "A Sinfonia que em tudo há", :release-year 2017, :artist #:artist{:name "Fresno"}}]
- [#:album{:id 2, :name "Construção", :release-year 1971, :artist #:artist{:name "Chico Buarque"}}]
- [#:album{:id 3, :name "Caçador de mim", :release-year 1986, :artist #:artist{:name "Milton 'Bituca' Nascimento"}}]]
-clj꞉aula6-predicates.core꞉> 
-#'aula6-predicates.core/pattern-album
-clj꞉aula6-predicates.core꞉> 
-(d/q {:query '[:find (pull ?e pattern-album)
-               :in $ pattern-album
-               :where  [?e :album/release-year ?release-year]
-               [?e :album/name ?name]]
-      :args [(d/db conn) pattern-album]})
-; Execution error (ExceptionInfo) at datomic.core.error/raise (error.clj:55).
-; :db.error/invalid-attr-spec Attribute identifier 1 of class: class java.lang.String does not start with a colon
-clj꞉aula6-predicates.core꞉> 
-#'aula6-predicates.core/pattern-album
-clj꞉aula6-predicates.core꞉> 
-(d/q {:query '[:find (pull ? pattern-album)
-               :in $ pattern-album
-               :where  [?e :album/release-year ?release-year]
-               [?e :album/name ?name]]
-      :args [(d/db conn) pattern-album]})
-; Execution error (ExceptionInfo) at datomic.core.error/raise (error.clj:55).
-; :db.error/unbound-query-variables Query is referencing unbound variables: #{?}
-clj꞉aula6-predicates.core꞉> 
-(d/q {:query '[:find (pull ? pattern-album)
-               :in $ pattern-album
-               :where  [?e :album/release-year ?release-year]]
-      :args [(d/db conn) pattern-album]})
-; Execution error (ExceptionInfo) at datomic.core.error/raise (error.clj:55).
-; :db.error/unbound-query-variables Query is referencing unbound variables: #{?}
-clj꞉aula6-predicates.core꞉> 
-(d/q {:query '[:find (pull ? pattern-album)
-               :in $ pattern-album
-               :where  [?e :album/release-year ?release-year]]
-      :args [(d/db conn) pattern-album]})
-; Execution error (ExceptionInfo) at datomic.core.error/raise (error.clj:55).
-; :db.error/unbound-query-variables Query is referencing unbound variables: #{?}
-clj꞉aula6-predicates.core꞉> 
-(d/q {:query '[:find (pull ?e pattern-album)
-               :in $ pattern-album
-               :where  [?e :album/release-year ?release-year]
-               [?e :album/name ?name]
-               [(count ?name) ?name]]
-      :args [(d/db conn) pattern-album]})
-; Syntax error compiling at (.calva/output-window/output.calva-repl:349:1).
-; No such namespace: d
-clj꞉aula6-predicates.core꞉> 
+; :db.error/invalid-attr-spec Attribute identifier clojure.core$_STAR_@461c7657 of class: class java.lang.String does not start with a colon
+clj꞉aula6-predicates.exercicio꞉> 
+nil
+clj꞉aula6-predicates.exercicio꞉> 
+#:artist{:name "Fresno"}
+clj꞉aula6-predicates.exercicio꞉> 
+#:artist{:name "Fresno"}
+clj꞉aula6-predicates.exercicio꞉> 
+#:artist{:name "Fresno"}
+clj꞉aula6-predicates.exercicio꞉> 
+; nREPL Connection was closed

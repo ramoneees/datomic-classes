@@ -17,7 +17,6 @@
    {:album/artist
     [:artist/name]}])
 
-
 (defn make-idents
   [x]
   (mapv #(hash-map :db/ident %) x))
@@ -37,7 +36,7 @@
                    :db/cardinality :db.cardinality/one
                    :db/valueType :db.type/string}
                   {:db/ident :album/artist
-                   :db/cardinality :db.cardinality/one
+                   :db/cardinality :db.cardinality/many
                    :db/valueType :db.type/ref}
                   {:db/ident :album/release-year
                    :db/cardinality :db.cardinality/one
@@ -69,6 +68,11 @@
               :album/artist [:artist/id 1]
               :album/release-year 2017
               :album/music-genre :rock}
+             {:album/id 10
+              :album/name "Ciano"
+              :album/artist [:artist/id 1]
+              :album/release-year 2005
+              :album/music-genre :rock}
              {:album/id 2
               :album/name "Construção"
               :album/artist [:artist/id 5]
@@ -90,4 +94,11 @@
   (d/delete-database client {:db-name "albuns"})
 
   (def conn (d/connect client {:db-name "albuns"}))
+  
+  (d/transact conn {:tx-data albuns})
+  
+  (d/pull (d/db conn) [:artist/name
+                       :album/_artist] [:artist/id 1])
+  
+  
   (def db (d/db conn)))

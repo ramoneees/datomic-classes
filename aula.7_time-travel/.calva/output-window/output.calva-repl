@@ -1,0 +1,302 @@
+; Jacking in...
+; Starting Jack-in Terminal: lein update-in :dependencies conj '[nrepl,"1.0.0"]' -- update-in :plugins conj '[cider/cider-nrepl,"0.28.5"]' -- update-in '[:repl-options,:nrepl-middleware]' conj '["cider.nrepl/cider-middleware"]' -- repl :headless
+; Hooking up nREPL sessions...
+; Connected session: clj
+; TIPS:
+;   - You can edit the contents here. Use it as a REPL if you like.
+;   - `alt+enter` evaluates the current top level form.
+;   - `ctrl+enter` evaluates the current form.
+;   - `alt+up` and `alt+down` traverse up and down the REPL command history
+;      when the cursor is after the last contents at the prompt
+;   - Clojure lines in stack traces are peekable and clickable.
+clj꞉aula.7-time-travel꞉> 
+; Jack-in done.
+clj꞉aula.7-time-travel꞉> 
+#'aula.7-time-travel/client
+clj꞉aula.7-time-travel꞉> 
+true
+clj꞉aula.7-time-travel꞉> 
+#'aula.7-time-travel/conn
+clj꞉aula.7-time-travel꞉> 
+{:db-before
+ #datomic.core.db.Db{:id "bank", :basisT 5, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
+ :db-after
+ #datomic.core.db.Db{:id "bank", :basisT 6, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
+ :tx-data
+ [#datom[13194139533318 50 #inst "2022-11-18T18:35:13.129-00:00" 13194139533318 true] #datom[73 10 :account/id 13194139533318 true] #datom[73 40 54 13194139533318 true] #datom[73 42 38 13194139533318 true] #datom[73 41 35 13194139533318 true] #datom[74 10 :account/balance 13194139533318 true] #datom[74 40 59 13194139533318 true] #datom[74 41 35 13194139533318 true] #datom[0 13 73 13194139533318 true] #datom[0 13 74 13194139533318 true]],
+ :tempids {}}
+clj꞉aula.7-time-travel꞉> 
+{:db-before
+ #datomic.core.db.Db{:id "bank", :basisT 6, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
+ :db-after
+ #datomic.core.db.Db{:id "bank", :basisT 7, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
+ :tx-data
+ [#datom[13194139533319 50 #inst "2022-11-18T18:36:37.378-00:00" 13194139533319 true] #datom[87960930222155 73 #uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8" 13194139533319 true] #datom[87960930222155 74 0.0 13194139533319 true] #datom[87960930222155 50 #inst "2010-10-02T00:00:00.000-00:00" 13194139533319 true]],
+ :tempids {}}
+clj꞉aula.7-time-travel꞉> 
+{:db/id 87960930222155,
+ :db/txInstant #inst "2010-10-02T00:00:00.000-00:00",
+ :account/id #uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8",
+ :account/balance 0.0}
+clj꞉aula.7-time-travel꞉> 
+{:db-before
+ #datomic.core.db.Db{:id "bank", :basisT 7, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
+ :db-after
+ #datomic.core.db.Db{:id "bank", :basisT 8, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
+ :tx-data
+ [#datom[13194139533320 50 #inst "2022-11-18T18:38:09.366-00:00" 13194139533320 true] #datom[79164837199948 73 #uuid "0427a493-48ca-41e9-b6cb-c1a661ce7a67" 13194139533320 true] #datom[79164837199948 74 0.0 13194139533320 true]],
+ :tempids {}}
+clj꞉aula.7-time-travel꞉> 
+; Execution error (ExceptionInfo) at datomic.core.error/raise (error.clj:55).
+; :db.error/invalid-lookup-ref Invalid list form: [:account/id]
+clj꞉aula.7-time-travel꞉> 
+[[{:db/id 79164837199948, :account/id #uuid "0427a493-48ca-41e9-b6cb-c1a661ce7a67", :account/balance 0.0}]
+ [{:db/id 87960930222155,
+   :db/txInstant #inst "2010-10-02T00:00:00.000-00:00",
+   :account/id #uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8",
+   :account/balance 0.0}]]
+clj꞉aula.7-time-travel꞉> 
+; Execution error (ExceptionInfo) at datomic.core.error/raise (error.clj:55).
+; :db.error/too-few-inputs Query expected 2 inputs but received 1
+clj꞉aula.7-time-travel꞉> 
+[]
+clj꞉aula.7-time-travel꞉> 
+{:db/id 79164837199948, :account/id #uuid "0427a493-48ca-41e9-b6cb-c1a661ce7a67", :account/balance 0.0}
+clj꞉aula.7-time-travel꞉> 
+{:db-before
+ #datomic.core.db.Db{:id "bank", :basisT 8, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
+ :db-after
+ #datomic.core.db.Db{:id "bank", :basisT 9, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
+ :tx-data
+ [#datom[13194139533321 50 #inst "2022-11-18T18:44:22.326-00:00" 13194139533321 true] #datom[87960930222155 74 10.0 13194139533321 true] #datom[87960930222155 74 0.0 13194139533321 false] #datom[87960930222155 50 #inst "2022-12-05T00:00:00.000-00:00" 13194139533321 true] #datom[87960930222155 50 #inst "2010-10-02T00:00:00.000-00:00" 13194139533321 false]],
+ :tempids {}}
+clj꞉aula.7-time-travel꞉> 
+{:db/id 87960930222155,
+ :db/txInstant #inst "2022-12-05T00:00:00.000-00:00",
+ :account/id #uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8",
+ :account/balance 10.0}
+clj꞉aula.7-time-travel꞉> 
+#:db{:id nil}
+clj꞉aula.7-time-travel꞉> 
+{:db/id 87960930222155,
+ :db/txInstant #inst "2010-10-02T00:00:00.000-00:00",
+ :account/id #uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8",
+ :account/balance 0.0}
+clj꞉aula.7-time-travel꞉> 
+{:db/id 87960930222155,
+ :db/txInstant #inst "2022-12-05T00:00:00.000-00:00",
+ :account/id #uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8",
+ :account/balance 10.0}
+clj꞉aula.7-time-travel꞉> 
+{:db/id 87960930222155,
+ :db/txInstant #inst "2010-10-02T00:00:00.000-00:00",
+ :account/id #uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8",
+ :account/balance 0.0}
+clj꞉aula.7-time-travel꞉> 
+{:db-before
+ #datomic.core.db.Db{:id "bank", :basisT 9, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
+ :db-after
+ #datomic.core.db.Db{:id "bank", :basisT 10, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
+ :tx-data
+ [#datom[13194139533322 50 #inst "2022-11-18T18:48:11.973-00:00" 13194139533322 true] #datom[87960930222155 74 1000.0 13194139533322 true] #datom[87960930222155 74 10.0 13194139533322 false] #datom[87960930222155 50 #inst "2022-12-25T00:00:00.000-00:00" 13194139533322 true] #datom[87960930222155 50 #inst "2022-12-05T00:00:00.000-00:00" 13194139533322 false]],
+ :tempids {}}
+clj꞉aula.7-time-travel꞉> 
+{:db/id 87960930222155,
+ :db/txInstant #inst "2022-12-25T00:00:00.000-00:00",
+ :account/id #uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8",
+ :account/balance 1000.0}
+clj꞉aula.7-time-travel꞉> 
+{:db/id 87960930222155,
+ :db/txInstant #inst "2022-12-25T00:00:00.000-00:00",
+ :account/id #uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8",
+ :account/balance 1000.0}
+clj꞉aula.7-time-travel꞉> 
+{:db/id 87960930222155,
+ :db/txInstant #inst "2022-12-05T00:00:00.000-00:00",
+ :account/id #uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8",
+ :account/balance 10.0}
+clj꞉aula.7-time-travel꞉> 
+(d/pull (d/as-of (d/db conn) #inst "2022-12-04") '[*]
+        [:account/id #uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8"])
+{:db/id 87960930222155,
+ :db/txInstant #inst "2022-12-05T00:00:00.000-00:00",
+ :account/id #uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8",
+ :account/balance 10.0}
+clj꞉aula.7-time-travel꞉> 
+(d/pull (d/as-of (d/db conn) #inst "2022-12-10") '[*]
+        [:account/id #uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8"])
+{:db/id 87960930222155,
+ :db/txInstant #inst "2022-12-05T00:00:00.000-00:00",
+ :account/id #uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8",
+ :account/balance 10.0}
+clj꞉aula.7-time-travel꞉> 
+(d/pull (d/as-of (d/db conn) #inst "2021-12-10") '[*]
+        [:account/id #uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8"])
+#:db{:id nil}
+clj꞉aula.7-time-travel꞉> 
+(d/pull (d/as-of (d/db conn) #inst "2023-12-10") '[*]
+        [:account/id #uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8"])
+; Execution error (ExceptionInfo) at datomic.core.anomalies/throw-if-anom (anomalies.clj:94).
+; Db not yet available for t=11
+clj꞉aula.7-time-travel꞉> 
+(d/pull (d/as-of (d/db conn) #inst "2022-12-29") '[*]
+        [:account/id #uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8"])
+; Execution error (ExceptionInfo) at datomic.core.anomalies/throw-if-anom (anomalies.clj:94).
+; Db not yet available for t=11
+clj꞉aula.7-time-travel꞉> 
+(d/pull (d/as-of (d/db conn) #inst "2022-12-25") '[*]
+        [:account/id #uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8"])
+{:db/id 87960930222155,
+ :db/txInstant #inst "2022-12-25T00:00:00.000-00:00",
+ :account/id #uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8",
+ :account/balance 1000.0}
+clj꞉aula.7-time-travel꞉> 
+[[{:db/id 87960930222155,
+   :db/txInstant #inst "2022-12-25T00:00:00.000-00:00",
+   :account/id #uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8",
+   :account/balance 1000.0}]]
+clj꞉aula.7-time-travel꞉> 
+(d/q '[:find (pull ?e [*])
+       :in $ $since
+       :where
+       [$ ?e :account/id]
+       [$since ?e :account/balance ?qtde]]
+     (d/db conn) (d/since (d/db conn) #inst "2022-12-05"))
+[]
+clj꞉aula.7-time-travel꞉> 
+(d/q '[:find (pull ?e [*])
+       :in $ $since
+       :where
+       [$ ?e :account/id]
+       [$since ?e :account/balance ?qtde]]
+     (d/db conn) (d/since (d/db conn) #inst "2022-12-04"))
+[[{:db/id 87960930222155,
+   :db/txInstant #inst "2022-12-25T00:00:00.000-00:00",
+   :account/id #uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8",
+   :account/balance 1000.0}]]
+clj꞉aula.7-time-travel꞉> 
+(d/q '[:find (pull ?e [*])
+       :in $ $since
+       :where
+       [$ ?e :account/id]
+       [$since ?e :account/balance ?qtde]]
+     (d/db conn) (d/since (d/db conn) #inst "2022-12-10"))
+[[{:db/id 87960930222155,
+   :db/txInstant #inst "2022-12-25T00:00:00.000-00:00",
+   :account/id #uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8",
+   :account/balance 1000.0}]]
+clj꞉aula.7-time-travel꞉> 
+(d/q '[:find (pull ?e [*])
+       :in $ $since
+       :where
+       [$ ?e :account/id]
+       [$since ?e :account/balance ?qtde]]
+     (d/db conn) (d/since (d/db conn) #inst "2022-11-10"))
+[[{:db/id 79164837199948, :account/id #uuid "0427a493-48ca-41e9-b6cb-c1a661ce7a67", :account/balance 0.0}]
+ [{:db/id 87960930222155,
+   :db/txInstant #inst "2022-12-25T00:00:00.000-00:00",
+   :account/id #uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8",
+   :account/balance 1000.0}]]
+clj꞉aula.7-time-travel꞉> 
+(d/q '[:find (pull ?e [*])
+       :in $ $since
+       :where
+       [$ ?e :account/id]
+       [$since ?e :account/balance ?qtde]]
+     (d/db conn) (d/since (d/db conn) #inst "2001-11-10"))
+[[{:db/id 87960930222155,
+   :db/txInstant #inst "2022-12-25T00:00:00.000-00:00",
+   :account/id #uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8",
+   :account/balance 1000.0}]]
+clj꞉aula.7-time-travel꞉> 
+[[#uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8" 1000.0 #inst "2010-10-02T00:00:00.000-00:00"]
+ [#uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8" 0.0 #inst "2022-12-25T00:00:00.000-00:00"]
+ [#uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8" 10.0 #inst "2022-12-25T00:00:00.000-00:00"]
+ [#uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8" 0.0 #inst "2010-10-02T00:00:00.000-00:00"]
+ [#uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8" 10.0 #inst "2010-10-02T00:00:00.000-00:00"]
+ [#uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8" 0.0 #inst "2022-12-05T00:00:00.000-00:00"]
+ [#uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8" 10.0 #inst "2022-12-05T00:00:00.000-00:00"]
+ [#uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8" 1000.0 #inst "2022-12-25T00:00:00.000-00:00"]
+ [#uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8" 1000.0 #inst "2022-12-05T00:00:00.000-00:00"]]
+clj꞉aula.7-time-travel꞉> 
+{:db-before
+ #datomic.core.db.Db{:id "bank", :basisT 10, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
+ :db-after
+ #datomic.core.db.Db{:id "bank", :basisT 11, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
+ :tx-data
+ [#datom[13194139533323 50 #inst "2022-11-18T18:58:03.903-00:00" 13194139533323 true] #datom[87960930222155 74 100.0 13194139533323 true] #datom[87960930222155 74 1000.0 13194139533323 false] #datom[87960930222155 50 #inst "2023-01-01T00:00:00.000-00:00" 13194139533323 true] #datom[87960930222155 50 #inst "2022-12-25T00:00:00.000-00:00" 13194139533323 false]],
+ :tempids {}}
+clj꞉aula.7-time-travel꞉> 
+[[#uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8" 100.0 #inst "2022-12-05T00:00:00.000-00:00"]
+ [#uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8" 0.0 #inst "2022-12-25T00:00:00.000-00:00"]
+ [#uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8" 10.0 #inst "2022-12-25T00:00:00.000-00:00"]
+ [#uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8" 1000.0 #inst "2023-01-01T00:00:00.000-00:00"]
+ [#uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8" 100.0 #inst "2022-12-25T00:00:00.000-00:00"]
+ [#uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8" 1000.0 #inst "2010-10-02T00:00:00.000-00:00"]
+ [#uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8" 0.0 #inst "2023-01-01T00:00:00.000-00:00"]
+ [#uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8" 10.0 #inst "2023-01-01T00:00:00.000-00:00"]
+ [#uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8" 0.0 #inst "2010-10-02T00:00:00.000-00:00"]
+ [#uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8" 10.0 #inst "2010-10-02T00:00:00.000-00:00"]
+ [#uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8" 0.0 #inst "2022-12-05T00:00:00.000-00:00"]
+ [#uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8" 10.0 #inst "2022-12-05T00:00:00.000-00:00"]
+ [#uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8" 1000.0 #inst "2022-12-25T00:00:00.000-00:00"]
+ [#uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8" 100.0 #inst "2023-01-01T00:00:00.000-00:00"]
+ [#uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8" 1000.0 #inst "2022-12-05T00:00:00.000-00:00"]
+ [#uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8" 100.0 #inst "2010-10-02T00:00:00.000-00:00"]]
+clj꞉aula.7-time-travel꞉> 
+true
+clj꞉aula.7-time-travel꞉> 
+true
+clj꞉aula.7-time-travel꞉> 
+#'aula.7-time-travel/conn
+clj꞉aula.7-time-travel꞉> 
+; Execution error (ExceptionInfo) at datomic.core.error/raise (error.clj:55).
+; :db.error/not-an-entity Unable to resolve entity: :account/id
+clj꞉aula.7-time-travel꞉> 
+{:db-before
+ #datomic.core.db.Db{:id "bank", :basisT 5, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
+ :db-after
+ #datomic.core.db.Db{:id "bank", :basisT 6, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
+ :tx-data
+ [#datom[13194139533318 50 #inst "2022-11-18T18:59:10.871-00:00" 13194139533318 true] #datom[73 10 :account/id 13194139533318 true] #datom[73 40 54 13194139533318 true] #datom[73 42 38 13194139533318 true] #datom[73 41 35 13194139533318 true] #datom[74 10 :account/balance 13194139533318 true] #datom[74 40 59 13194139533318 true] #datom[74 41 35 13194139533318 true] #datom[0 13 73 13194139533318 true] #datom[0 13 74 13194139533318 true]],
+ :tempids {}}
+clj꞉aula.7-time-travel꞉> 
+{:db-before
+ #datomic.core.db.Db{:id "bank", :basisT 6, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
+ :db-after
+ #datomic.core.db.Db{:id "bank", :basisT 7, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
+ :tx-data
+ [#datom[13194139533319 50 #inst "2022-11-18T18:59:13.294-00:00" 13194139533319 true] #datom[79164837199947 73 #uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8" 13194139533319 true] #datom[79164837199947 74 0.0 13194139533319 true] #datom[79164837199947 50 #inst "2021-12-01T00:00:00.000-00:00" 13194139533319 true]],
+ :tempids {}}
+clj꞉aula.7-time-travel꞉> 
+{:db-before
+ #datomic.core.db.Db{:id "bank", :basisT 7, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
+ :db-after
+ #datomic.core.db.Db{:id "bank", :basisT 8, :indexBasisT 0, :index-root-id nil, :asOfT nil, :sinceT nil, :raw nil},
+ :tx-data
+ [#datom[13194139533320 50 #inst "2022-11-18T18:59:30.514-00:00" 13194139533320 true] #datom[79164837199947 74 1200.0 13194139533320 true] #datom[79164837199947 74 0.0 13194139533320 false] #datom[79164837199947 50 #inst "2021-12-05T00:00:00.000-00:00" 13194139533320 true] #datom[79164837199947 50 #inst "2021-12-01T00:00:00.000-00:00" 13194139533320 false]],
+ :tempids {}}
+clj꞉aula.7-time-travel꞉> 
+; Execution error (ExceptionInfo) at datomic.core.anomalies/throw-if-anom (anomalies.clj:94).
+; Db not yet available for t=9
+clj꞉aula.7-time-travel꞉> 
+{:db/id 79164837199947,
+ :db/txInstant #inst "2021-12-01T00:00:00.000-00:00",
+ :account/id #uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8",
+ :account/balance 0.0}
+clj꞉aula.7-time-travel꞉> 
+#:db{:id nil}
+clj꞉aula.7-time-travel꞉> 
+#:db{:id nil}
+clj꞉aula.7-time-travel꞉> 
+{:db/id 79164837199947,
+ :db/txInstant #inst "2021-12-05T00:00:00.000-00:00",
+ :account/id #uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8",
+ :account/balance 1200.0}
+clj꞉aula.7-time-travel꞉> 
+[[#uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8" 0.0 #inst "2021-12-01T00:00:00.000-00:00"]
+ [#uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8" 1200.0 #inst "2021-12-05T00:00:00.000-00:00"]
+ [#uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8" 1200.0 #inst "2021-12-01T00:00:00.000-00:00"]
+ [#uuid "a55756fd-0884-4b4e-afa7-b1bedbd5d5f8" 0.0 #inst "2021-12-05T00:00:00.000-00:00"]]
+clj꞉aula.7-time-travel꞉> 
+; nREPL Connection was closed
